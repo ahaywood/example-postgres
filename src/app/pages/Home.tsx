@@ -1,9 +1,21 @@
+import { PrismaClient } from "@/generated/prisma";
+import { PrismaPg } from "@prisma/adapter-pg";
 import { RequestInfo } from "rwsdk/worker";
-import { PrismaClient } from "../../generated/prisma";
+import { env } from "cloudflare:workers";
 
-const prisma = new PrismaClient();
+// Create a singleton instance
+let prisma: PrismaClient | null = null;
+
+function getPrismaClient() {
+  if (!prisma) {
+    const adapter = new PrismaPg({ connectionString: env.DATABASE_URL });
+    prisma = new PrismaClient({ adapter });
+  }
+  return prisma;
+}
 
 export async function Home({ ctx }: RequestInfo) {
+  const prisma = getPrismaClient();
   const users = await prisma.user.findMany();
 
   return (
