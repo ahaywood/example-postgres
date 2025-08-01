@@ -24,6 +24,7 @@
 
   // Environment variables
   "vars": {
-    // Add your environment variables here
+    "DATABASE_URL": "your_postgresql_connection_string_here",
+    "DIRECT_DATABASE_URL": "your_direct_postgresql_connection_string_here"
   }
 }
