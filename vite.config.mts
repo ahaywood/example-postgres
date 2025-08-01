@@ -9,16 +9,4 @@ export default defineConfig({
     }),
     redwood(),
   ],
-  resolve: {
-    alias: {
-      // Use the appropriate Prisma client build for Cloudflare Workers
-      "@prisma/client": "@prisma/client/wasm",
-    },
-  },
-  optimizeDeps: {
-    exclude: ["@prisma/client"],
-  },
-  ssr: {
-    external: ["@prisma/client"],
-  },
 });
