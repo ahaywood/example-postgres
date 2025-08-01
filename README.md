@@ -69,6 +69,8 @@ npx prisma dev
 
 and hitting `h` to get the `DIRECT_DATABASE_URL` and `t` to get the `DATABASE_URL`.
 
+![Local Postgres](./README/local-postgres.png)
+
 Update your `schema.prisma` file:
 
 ```prisma
