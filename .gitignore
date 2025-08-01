@@ -65,4 +65,4 @@ coverage
 
 # Wrangler
 .wrangler
-# /src/generated/prisma
+/src/generated/prisma
